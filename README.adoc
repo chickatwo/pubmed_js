@@ -1,0 +1,117 @@
+= PubMed search
+
+== Abstract
+
+This repository contains a simple, no-dependency or framework `html` and javascript file(s) for performing simple queries on PubMed, with an optional filter across the _Abstract_ for each publication.
+
+== Introduction
+
+PubMed is arguably one of the largest archives of published medical and bio-medical research. Being able to search this archive easily for papers of interest is an oft-solved problem.
+
+This repository provides a simply javascript module that can be used in other applications to effect such a search. Currently results are searched, processed, and displayed on the same page as the search term entry.
+
+== How to run
+
+Simply clone this repo into a directory:
+
+[source, bash]
+----
+gh repo clone FNNDSC/pubmed_js
+----
+
+enter the cloned repository
+
+[source, bash]
+----
+cd pubmed_js
+----
+
+fire up a python server
+
+[source, bash]
+----
+python -m http.server
+----
+
+and now in a browser, goto
+
+[source, bash]
+----
+http://localhost:8000
+----
+
+== Search hints
+
+The javascript code simply passes whatever is entered into the `html` search box to the PubMed API. As such, it "supports" PubMed tagging. For example, to search for a specific author, e.g. "Stout" and a specific condition, e.g. "moyamoya", use as search term:
+
+[source, console]
+----
+stout[AU] moyamoya[MeSH]
+----
+
+== Abstract filtering
+
+An additional entry box is provided, more as a programming experiment than anything else, to additionally filter abstracts for given text.
+
+== List of search tags
+
+The following search tags are understood by PubMed:
+
+. [TI] - Title: Searches for the term in the title of the article.
+
+* Example: cancer[TI]
+
+. [TIAB] - Title/Abstract: Searches for the term in both the title and abstract of the article.
+
+* Example: diabetes[TIAB]
+
+. [AU] - Author: Searches for the term in the author field.
+
+* Example: Smith[AU]
+
+. [AD] - Address: Searches for the term in the address field (author affiliation).
+
+* Example: Boston[AD]
+
+. [TA] - Journal Name: Searches for the term in the journal name field.
+
+* Example: Science[TA]
+
+. [MH] - MeSH Terms: Searches for the term as a MeSH heading (Medical Subject Heading).
+
+* Example: hypertension[MH]
+
+. [TIAB] - Title/Abstract: Searches for the term in both the title and abstract of the article.
+
+* Example: "heart disease"[TIAB]
+
+. [DP] - Publication Date: Searches for articles published in a specific date range.
+
+* Example: 2020[DP]
+
+. [PG] - Page Number: Searches for the term in the page number field.
+
+* Example: 123[PG]
+
+. [PT] - Publication Type: Searches for articles of a specific publication type.
+
+* Example: Review[PT]
+
+. [AB] - Abstract: Searches for the term in the abstract of the article.
+
+* Example: "clinical trial"[AB]
+
+. [JT] - Journal Title: Searches for the term in the full title of the journal.
+
+* Example: "New England Journal of Medicine"[JT]
+
+These tags can be combined to create more complex search queries. For example, to search for articles with "cancer" in the title by the author Smith published in 2020, you could use:
+
+[source, console]
+----
+cancer[TI] AND Smith[AU] AND 2020[DP].
+----
+
+_-30-_
+
+

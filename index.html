@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="pubsearch.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>PubMed Search</h1>
+        <input type     = "text"
+            id          = "pubmedInput"
+            class       = "fullWidthInput"
+            placeholder = "Enter PubMed search term, eg 'Pienaar[AU] HIE[MH]'">
+
+        <input type     = "text"
+            id          = "filterFor"
+            class       = "fullWidthInput"
+            placeholder = "Optionally Filter Abstracts">
+
+        <button onclick="getPublications()">Search</button>
+        <br>
+        <div id = "searching" class = "blink"></div>
+        <div id = "metaData" ></div>
+    </div>
+    <div id="results">
+    </div>
+
+</body>
+</html>
