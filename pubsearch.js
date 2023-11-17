@@ -108,6 +108,7 @@ const metadata_fetch = async (pubMedID) => {
     const volume            = volume_process(xmlDocument);
 
     const metadata = {
+        pubMedID,
         title,
         abstract,
         authors,
@@ -180,7 +181,12 @@ function displayPublications(a_metaData) {
     const ul = document.createElement('ul');
     a_metaData.forEach(publication => {
         const li = document.createElement('li');
-
+        const pubMedLink = document.createElement('a');
+        pubMedLink.href = `https://pubmed.ncbi.nlm.nih.gov/${publication.pubMedID}/`;
+        pubMedLink.textContent = `PubMed ID: ${publication.pubMedID}`;
+        li.appendChild(pubMedLink);
+        li.appendChild(document.createElement('br'));
+    
         field_add(li, publication.title, 'strong');
         field_add(li, publication.authors, 'strong');
         field_add(li, publication.abstract, 'em');
