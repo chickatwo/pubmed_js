@@ -112,6 +112,10 @@ These tags can be combined to create more complex search queries. For example, t
 cancer[TI] AND Smith[AU] AND 2020[DP].
 ----
 
+== Future roadmap
+
+The existing javascript app is slated for re-factoring as a nodejs app, suitable for CLI and browser use. Watch this space!
+
 _-30-_
 
 
