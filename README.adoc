@@ -2,7 +2,7 @@
 
 == Abstract
 
-This repository contains a simple, no-dependency or framework `html` and javascript file(s) for performing simple queries on PubMed, with an optional filter across the _Abstract_ for each publication.
+This repository contains a simple, no-frills, no-dependency, no-framework plain old javascript app and companion `html` page for performing simple queries on PubMed, with an optional filter across the _Abstract_ for each publication.
 
 == Introduction
 
